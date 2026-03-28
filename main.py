@@ -1,4 +1,4 @@
-primer = "молоко"
+primer = "молокО"
 nothingvow = 'аоуэ'
 softvow = 'и'
 jvow = 'еёюя'
@@ -13,19 +13,34 @@ reducts = {'а': ['а', 'а', 'ь'], 'о': ['о', 'а', 'ъ'], 'у': ['у', 'у'
 def reduction(word):
     reds = []
     udar = False
-    for c in word:
+    for i in range(len(word)):
+        c = word[i]
         low = c.lower()
         if low in vow:
             if ord(c) < ord('а'):
-                reds.pop()
-                reds.append(2)
-                reds.append(3)
-                reds.append(2)
+                if reds:
+                    reds[-1] = (reducts[prev[0]][1], prev[1])
+                reds.append((reducts[low][0], i))
                 udar = True
-        elif udar:
-            udar = False
-        else:
-            reds.append(1)
+            elif udar:
+                reds.append((reducts[low][1], i))
+                udar = False
+            else:
+                reds.append((reducts[low][2], i))
+            prev = (low, i)
+    result = []
+    for c in word:
+        result.append(c)
+    for i in reds:
+        result[i[1]] = i[0]
+        print(i, result)
+    ans = ''
+    for i in result:
+        ans += i
+    return ans, reds
+
+
+print(reduction(primer))
 
 
 def transcr(word: str, stress: int):
