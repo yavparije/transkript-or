@@ -3,11 +3,14 @@ nothingvow = "аоуэ"
 softvow = "и"
 jvow = "еёюя"
 vow = "аоуэиеёюя"
+a = chr(39)  # апостроф / знак мягкости
 # звонкий + глухой = звонкий
 dingcon = ["б", "в", "г", "д", "ж", "з"]
 shhcon = ["п", "ф", "к", "т", "ш", "с"]
-reducts = {"а": ["а", "а", "ь"], "о": ["о", "а", "ъ"], "у": ["у", "у", "ъ"], "э": ["э", "э", "ъ"], "и": ["и", "и", "ь"],
-           "е": ["'э", "'и", "'ь"], "ё": ["'о", "'о", "'о"], "ю": ["'у", "'у", "'ъ"], "я": ["'а", "'а", "'ь"]}
+reducts = {"а": ["а", "а", "ь"], "о": ["о", "а", "ъ"], "у": ["у", "у", "ъ"], "э": ["э", "э", "ъ"],
+           "и": [f"{a}и", f"{a}и", f"{a}ь"],
+           "е": [f"{a}э", f"{a}и", f"{a}ь"], "ё": [f"{a}о", f"{a}о", f"{a}о"], "ю": ["'у", "'у", "'ъ"],
+           "я": [f"{a}а", f"{a}а", f"{a}ь"]}
 
 
 def reduction(word):
@@ -37,7 +40,7 @@ def reduction(word):
     ans = ""
     for i in result:
         ans += i
-    return ans, reds
+    return ans
 
 
 def softness(word):
@@ -45,20 +48,22 @@ def softness(word):
     prev = word[0]
     for i in range(1, len(word)):
         if word[i] == "ь":
-            ans.append("'")
+            ans.append(a)
             ans.append(word[i])
-        elif word[i] == "ъ" and prev == "'":
+        elif word[i] == "ъ" and prev == a:
             ans.pop()
+        else:
+            ans.append(word[i])
     ret = ''
     for c in ans:
         ret += c
     return ret
 
 
-print(reduction(primer))
-
-
-def transcr(word: str, stress: int):
+def transcr(word: str):
     n = len(word)
-    phoword = word
+    phoword = reduction(softness(word))
     return f"[{phoword}]"
+
+
+print(transcr(primer))

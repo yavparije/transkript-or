@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="доделана редукция гласных. проверить список reducts">
+    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="редукция. мягкий и твердый знаки">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -90,12 +90,21 @@
       <option name="project" value="LOCAL" />
       <updated>1774724321934</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="редукция. мягкий и твердый знаки">
+      <option name="closed" value="true" />
+      <created>1774901280526</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1774901280527</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="начало правила потебни" />
     <MESSAGE value="доделана редукция гласных. проверить список reducts" />
-    <option name="LAST_COMMIT_MESSAGE" value="доделана редукция гласных. проверить список reducts" />
+    <MESSAGE value="редукция. мягкий и твердый знаки" />
+    <option name="LAST_COMMIT_MESSAGE" value="редукция. мягкий и твердый знаки" />
   </component>
 </project>
