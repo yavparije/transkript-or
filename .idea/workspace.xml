@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="знаки ударения + тестовые слова">
+    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="озвончение+улучшенная ассимиляция">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774953730710</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="озвончение+улучшенная ассимиляция">
+      <option name="closed" value="true" />
+      <created>1775032658420</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1775032658420</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -123,6 +132,7 @@
     <MESSAGE value="редукция. мягкий и твердый знаки" />
     <MESSAGE value="смягчение согласных" />
     <MESSAGE value="знаки ударения + тестовые слова" />
-    <option name="LAST_COMMIT_MESSAGE" value="знаки ударения + тестовые слова" />
+    <MESSAGE value="озвончение+улучшенная ассимиляция" />
+    <option name="LAST_COMMIT_MESSAGE" value="озвончение+улучшенная ассимиляция" />
   </component>
 </project>
