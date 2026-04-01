@@ -1,6 +1,6 @@
 # тестовые примеры: молокО, глУхонький, снЕдь, предэкзаменациОнный, превысокомногорассмотрИтельствующийся
 # длинношеее
-primer = input()
+primer = ''.join(input().split())
 nothingvow = "аоуэ"
 softvow = "и"
 jvow = "еёюя"
@@ -49,13 +49,16 @@ def reduction(word: str) -> str:
     return ans
 
 
+# ст и сд если мягк то перенести на с тоже
+# сделать чтобы добавлялось й в йотированных
+# гласные после ь льёт = [л'йот]
+# твердый знак всегда перед гласным
 def softness(word: str) -> str:
     ans = [word[0]]
     prev = word[0]
     for i in range(1, len(word)):
         if word[i] == "ь":
             ans.append(a)
-            ans.append(word[i])
         elif word[i] == "ъ" and prev == a:
             ans.pop()
         else:
