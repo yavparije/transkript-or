@@ -1,4 +1,5 @@
 # тестовые примеры: молокО, глУхонький, снЕдь, предэкзаменациОнный
+# длинношеее
 primer = input()
 nothingvow = "аоуэ"
 softvow = "и"
@@ -8,13 +9,14 @@ a = chr(39)  # апостроф / знак мягкости
 # звонкий + глухой = звонкий
 dingcon = ["б", "в", "г", "д", "ж", "з"]
 shhcon = ["п", "ф", "к", "т", "ш", "с"]
-reducts = {"а": ["а́", "а", "ь"], "о": ["о́", "а", "ъ"], "у": ["у́", "у", "ъ"], "э": ["э́", "э", "ъ"],
+paircons = {'п': 'б', 'ф': 'в', 'к': 'г', 'т': 'д', 'ш': 'ж', 'с': 'з'}
+reducts = {"а": ["а́", "а", "ъ"], "о": ["о́", "а", "ъ"], "у": ["у́", "у", "ъ"], "э": ["э́", "э", "ъ"],
            "и": [f"{a}и́", f"{a}и", f"{a}ь"],
-           "е": [f"{a}э́", f"{a}и", f"{a}ь"], "ё": [f"{a}о́", f"{a}о", f"{a}о"], "ю": [f"{a}у́", f"{a}у", f"{a}ъ"],
+           "е": [f"{a}э́", f"{a}и", f"{a}ь"], "ё": [f"{a}о́", f"{a}о́", f"{a}о́"], "ю": [f"{a}у́", f"{a}у", f"{a}ъ"],
            "я": [f"{a}а́", f"{a}а", f"{a}ь"]}
 
 
-def reduction(word):
+def reduction(word: str) -> str:
     reds = []
     udar = False
     for i in range(len(word)):
@@ -35,6 +37,9 @@ def reduction(word):
     result = []
     for c in word:
         result.append(c)
+    for i in range(len(result)):
+        if result[i] == 'ъ' and result[i - 1] == a:
+            result[i] = 'ь'
     for i in reds:
         result[i[1]] = i[0]
     #        print(i, result)
@@ -44,7 +49,7 @@ def reduction(word):
     return ans
 
 
-def softness(word):
+def softness(word: str) -> str:
     ans = [word[0]]
     prev = word[0]
     for i in range(1, len(word)):
@@ -61,9 +66,29 @@ def softness(word):
     return ret
 
 
-def transcr(word: str):
+def assimilation(word: str):
+    ans = [word[0]]
+    prev = word[0]
+    for i in range(1, len(word)):
+        if word[i] == prev:
+            ans.pop()
+            ans.append(f'{prev}:')
+        elif prev in shhcon and word[i] in dingcon:
+            ans.pop()
+            ans.append(paircons[prev])
+            ans.append(word[i])
+        else:
+            ans.append(word[i])
+        prev = word[i]
+    ret = ''
+    for c in ans:
+        ret += c
+    return ret
+
+
+def transcr(word: str) -> str:
     n = len(word)
-    phoword = reduction(softness(word))
+    phoword = reduction(softness(assimilation(word)))
     return f"[{phoword}]"
 
 
