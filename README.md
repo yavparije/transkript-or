@@ -19,3 +19,7 @@
 # Как установить Python?
 
 Вариант 1:
+> Перейти на https://www.python.org/downloads/ и скачать нужную версию Python
+>
+Вариант 2:
+> написать в терминал линукс *sudo apt-get install python*

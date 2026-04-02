@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="ввод без перезапуска" />
+    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="ц">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -191,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775137027436</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="ц">
+      <option name="closed" value="true" />
+      <created>1775137592476</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1775137592476</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -209,6 +220,7 @@
     <MESSAGE value="шжц твердые" />
     <MESSAGE value="убираем ъ, оглушаем в конце слова" />
     <MESSAGE value="ввод без перезапуска" />
-    <option name="LAST_COMMIT_MESSAGE" value="ввод без перезапуска" />
+    <MESSAGE value="ц" />
+    <option name="LAST_COMMIT_MESSAGE" value="ц" />
   </component>
 </project>
