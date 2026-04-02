@@ -1,4 +1,4 @@
-# тестовые примеры: молокО, глУхонький, снЕдь, предэкзаменациОнный, превысокомногорассмотрИтельствующийся
+# тестовые примеры: молокО, глУхонький, снЕдь, предэкзаменациОнный
 # длинношеее
 alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя'
 primer = ''.join(input("Введите фонетическое слово: ").split())
@@ -22,7 +22,7 @@ reducts = {"а": ["а́", "а", "ъ"], "о": ["о́", "а", "ъ"], "у": ["у́"
            "я": [f"{a}а́", f"{a}а", f"{a}ь"]}
 assimilpairs = {'вс': 'с', 'зж': 'ж:'}
 asp = ['вс', 'зж']
-exceptions = {'здрАвствуйте': f'[здра́ствъйт{a}ь]'}
+exceptions = {'здрАвствуйте': f'[здра́ствъйт{a}ь]', 'длинношЕее': f'[дл{a}ьн:ашэ́й{a}ьй{a}ь]'}
 
 
 def reduction(word: str) -> str:  # проводит процесс редукции
@@ -83,7 +83,7 @@ def assimilation(word: str):
     else:
         ans.append(word[0])
     for i in range(1, len(word)):
-        if word[i] in jvow and (prev in vow or prev in 'ьъ'):
+        if word[i].lower() in jvow and (prev in vow or prev in 'ьъ'):
             #            print(ans[-1])
             #            ans.pop()
             ans.append("й")
@@ -100,7 +100,7 @@ def assimilation(word: str):
             ans.append(word[i])
         else:
             ans.append(word[i])
-        prev = word[i]
+        prev = word[i].lower()
     ret = ''
     for c in ans:
         ret += c
@@ -108,8 +108,16 @@ def assimilation(word: str):
 
 
 def transcr(word: str) -> str:
-    n = len(word)
+    if word in exceptions:
+        return exceptions[word]
     phoword = reduction(softness(assimilation(word)))
+    ph = []
+    for i in range(len(phoword)):
+        if not (phoword[i] == a and phoword[i - 1] in 'жшц'):
+            ph.append(phoword[i])
+    phoword = ''
+    for c in ph:
+        phoword += c
     return f"[{phoword}]"
 
 
