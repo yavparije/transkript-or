@@ -1,5 +1,5 @@
 # тестовые примеры: молокО, глУхонький, снЕдь, предэкзаменациОнный
-# длинношеее
+# длинношЕее
 alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя'
 nothingvow = "аоуэ"
 softvow = "и"
@@ -86,6 +86,8 @@ def assimilation(word: str):
         if word[i] == prev:
             ans.pop()
             ans.append(f'{prev}:')
+        elif word[i] == 'и' and prev == 'ц':
+            ans.append('ы')
         elif i >= len(word) - 2 and word[i] in dingcon and word[i] != 'в':
             ans.append(pairshh[word[i]])
         elif prev + word[i] in asp:
