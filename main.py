@@ -20,6 +20,9 @@ reducts = {"а": ["а́", "а", "ъ"], "о": ["о́", "а", "ъ"], "у": ["у́"
            "и": [f"{a}и́", f"{a}и", f"{a}ь"],
            "е": [f"{a}э́", f"{a}и", f"{a}ь"], "ё": [f"{a}о́", f"{a}о́", f"{a}о́"], "ю": [f"{a}у́", f"{a}у", f"{a}ъ"],
            "я": [f"{a}а́", f"{a}а", f"{a}ь"]}
+assimilpairs = {'вс': 'с', 'зж': 'ж:'}
+asp = ['вс', 'зж']
+exceptions = {'здрАвствуйте': f'[здра́ствъйт{a}ь]'}
 
 
 def reduction(word: str) -> str:  # проводит процесс редукции
@@ -56,9 +59,6 @@ def reduction(word: str) -> str:  # проводит процесс редукц
 
 
 # ст и сд если мягк то перенести на с тоже
-# сделать чтобы добавлялось й в йотированных
-# гласные после ь льёт = [л'йот]
-# твердый знак всегда перед гласным
 def softness(word: str) -> str:
     ans = [word[0]]
     prev = word[0]
@@ -80,14 +80,21 @@ def assimilation(word: str):
     prev = word[0]
     if word[0].lower() in jvow:
         ans.append(f'й')
+    else:
+        ans.append(word[0])
     for i in range(1, len(word)):
-        if word[i] in jvow and prev in vow or prev in 'ьъ':
-            ans.pop()
+        if word[i] in jvow and (prev in vow or prev in 'ьъ'):
+            #            print(ans[-1])
+            #            ans.pop()
             ans.append("й")
         if word[i] == prev:
             ans.pop()
             ans.append(f'{prev}:')
-        elif prev in shhcon and word[i] in dingcon:
+        elif prev + word[i] in asp:
+            ans.pop()
+            ans.append(assimilpairs[prev + word[i]])
+            asml = True
+        elif prev in shhcon and word[i] in dingcon and word[i] != 'в':
             ans.pop()
             ans.append(paircons[prev])
             ans.append(word[i])
@@ -97,7 +104,6 @@ def assimilation(word: str):
     ret = ''
     for c in ans:
         ret += c
-    print(ret)
     return ret
 
 
