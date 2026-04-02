@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="мягкость">
+    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="комментарии">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775054714801</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="комментарии">
+      <option name="closed" value="true" />
+      <created>1775064860838</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1775064860838</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -159,6 +166,7 @@
     <MESSAGE value="озвончение+улучшенная ассимиляция" />
     <MESSAGE value="ридми" />
     <MESSAGE value="мягкость" />
-    <option name="LAST_COMMIT_MESSAGE" value="мягкость" />
+    <MESSAGE value="комментарии" />
+    <option name="LAST_COMMIT_MESSAGE" value="комментарии" />
   </component>
 </project>

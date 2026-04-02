@@ -1,7 +1,12 @@
 # тестовые примеры: молокО, глУхонький, снЕдь, предэкзаменациОнный, превысокомногорассмотрИтельствующийся
 # длинношеее
+alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя'
 primer = ''.join(input("Введите фонетическое слово: ").split())
-# сделать проверку на правильность ввода
+for c in primer:
+    if c not in alphabet:
+        print(
+            'Пожалуйста проверьте введенное слово на корректность. Фонетическое слово должно быть написано русскими буквами, без цифр и специальных символов(пробел специальным символом не считается).')
+        exit()
 nothingvow = "аоуэ"
 softvow = "и"
 jvow = "еёюя"
@@ -71,9 +76,14 @@ def softness(word: str) -> str:
 
 
 def assimilation(word: str):
-    ans = [word[0]]
+    ans = []
     prev = word[0]
+    if word[0].lower() in jvow:
+        ans.append(f'й')
     for i in range(1, len(word)):
+        if word[i] in jvow and prev in vow or prev in 'ьъ':
+            ans.pop()
+            ans.append("й")
         if word[i] == prev:
             ans.pop()
             ans.append(f'{prev}:')
@@ -87,6 +97,7 @@ def assimilation(word: str):
     ret = ''
     for c in ans:
         ret += c
+    print(ret)
     return ret
 
 
