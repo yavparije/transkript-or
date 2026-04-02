@@ -16,23 +16,25 @@ a = chr(39)  # апостроф / знак мягкости
 dingcon = ["б", "в", "г", "д", "ж", "з"]
 shhcon = ["п", "ф", "к", "т", "ш", "с"]
 paircons = {'п': 'б', 'ф': 'в', 'к': 'г', 'т': 'д', 'ш': 'ж', 'с': 'з'}
-reducts = {"а": ["а́", "а", "ъ"], "о": ["о́", "а", "ъ"], "у": ["у́", "у", "ъ"], "э": ["э́", "э", "ъ"],
+pairshh = {'б': 'п', 'ф': 'в', 'г': 'к', 'д': 'т', 'ж': 'ш', 'з': 'с'}
+reducts = {"а": ["а́", "а", "ъ"], "о": ["о́", "а", "ъ"], "у": ["у́", "у", "у"], "э": ["э́", "э", "ъ"],
            "и": [f"{a}и́", f"{a}и", f"{a}ь"],
-           "е": [f"{a}э́", f"{a}и", f"{a}ь"], "ё": [f"{a}о́", f"{a}о́", f"{a}о́"], "ю": [f"{a}у́", f"{a}у", f"{a}ъ"],
+           "е": [f"{a}э́", f"{a}и", f"{a}ь"], "ё": [f"{a}о́", f"{a}о́", f"{a}о́"], "ю": [f"{a}у́", f"{a}у", f"{a}у"],
            "я": [f"{a}а́", f"{a}а", f"{a}ь"]}
-assimilpairs = {'вс': 'с', 'зж': 'ж:'}
-asp = ['вс', 'зж']
-exceptions = {'здрАвствуйте': f'[здра́ствъйт{a}ь]', 'длинношЕее': f'[дл{a}ьн:ашэ́й{a}ьй{a}ь]'}
+assimilpairs = {'вс': 'с', 'зж': 'ж:', 'сч': f'ш:'}
+asp = ['вс', 'зж', 'сч']
+exceptions = {'здрАвствуйте': f'[здра́ствъйт{a}ь]', 'длинношЕее': f'[дл{a}ьн:ашэ́й{a}ьй{a}ь]', 'пОстер': f'[по́стър]'}
 
 
 def reduction(word: str) -> str:  # проводит процесс редукции
     reds = []
     udar = False
+    prev = ()
     for i in range(len(word)):
         c = word[i]
         low = c.lower()
         if low in vow:
-            if ord(c) < ord("а"):
+            if ord(c) < ord("а") or c == 'ё':
                 if reds:
                     reds[-1] = (reducts[prev[0]][1], prev[1])
                 reds.append((reducts[low][0], i))
@@ -90,14 +92,18 @@ def assimilation(word: str):
         if word[i] == prev:
             ans.pop()
             ans.append(f'{prev}:')
+        elif i >= len(word) - 2 and word[i] in dingcon:
+            ans.append(pairshh[word[i]])
         elif prev + word[i] in asp:
             ans.pop()
             ans.append(assimilpairs[prev + word[i]])
-            asml = True
         elif prev in shhcon and word[i] in dingcon and word[i] != 'в':
             ans.pop()
             ans.append(paircons[prev])
             ans.append(word[i])
+        elif word[i] == 'ъ':
+            if prev == a:
+                ans.pop()
         else:
             ans.append(word[i])
         prev = word[i].lower()

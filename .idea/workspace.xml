@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="йотированные гласные">
+    <list default="true" id="116cc8b6-53e7-409e-acfb-e12b447add5b" name="Changes" comment="шжц твердые">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -170,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775110908886</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="шжц твердые">
+      <option name="closed" value="true" />
+      <created>1775112210152</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1775112210152</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -185,6 +193,7 @@
     <MESSAGE value="комментарии" />
     <MESSAGE value="проверка ввода, йотированные гласные" />
     <MESSAGE value="йотированные гласные" />
-    <option name="LAST_COMMIT_MESSAGE" value="йотированные гласные" />
+    <MESSAGE value="шжц твердые" />
+    <option name="LAST_COMMIT_MESSAGE" value="шжц твердые" />
   </component>
 </project>
