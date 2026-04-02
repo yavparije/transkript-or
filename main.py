@@ -1,12 +1,6 @@
 # тестовые примеры: молокО, глУхонький, снЕдь, предэкзаменациОнный
 # длинношеее
 alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя'
-primer = ''.join(input("Введите фонетическое слово: ").split())
-for c in primer:
-    if c not in alphabet:
-        print(
-            'Пожалуйста проверьте введенное слово на корректность. Фонетическое слово должно быть написано русскими буквами, без цифр и специальных символов(пробел специальным символом не считается).')
-        exit()
 nothingvow = "аоуэ"
 softvow = "и"
 jvow = "еёюя"
@@ -92,7 +86,7 @@ def assimilation(word: str):
         if word[i] == prev:
             ans.pop()
             ans.append(f'{prev}:')
-        elif i >= len(word) - 2 and word[i] in dingcon:
+        elif i >= len(word) - 2 and word[i] in dingcon and word[i] != 'в':
             ans.append(pairshh[word[i]])
         elif prev + word[i] in asp:
             ans.pop()
@@ -127,4 +121,14 @@ def transcr(word: str) -> str:
     return f"[{phoword}]"
 
 
-print(transcr(primer))
+while True:
+    primer = ''.join(input("Введите фонетическое слово или -1 чтобы выйти из программы: ").split())
+    if primer == -1:
+        exit()
+    else:
+        for c in primer:
+            if c not in alphabet:
+                print(
+                    'Пожалуйста проверьте введенное слово на корректность. Фонетическое слово должно быть написано русскими буквами, без цифр и специальных символов(пробел специальным символом не считается).')
+                exit()
+    print(transcr(primer))
